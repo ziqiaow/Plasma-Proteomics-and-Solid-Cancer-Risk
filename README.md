@@ -245,5 +245,5 @@ To reproduce the analyses:
 
 ## Contact
 
-For questions about the code or analyses, please contact Ziqiao Wang.
+For questions about the code or analyses, please contact Ziqiao Wang at ziqiao.wang@virginia.edu.
 ```
