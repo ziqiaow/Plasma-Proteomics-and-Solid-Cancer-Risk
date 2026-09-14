@@ -14,23 +14,20 @@ The repository includes code for:
 
 - Data cleaning and preparation
 - Plasma proteomic data processing
-- Protein dimension-reduction and latent-factor analyses
+- PEER factors and PCA calculation
 - Protein–cancer association analyses
 - Sensitivity analyses
-- Protein trajectory and reproducibility analyses
+- Protein trajectory analyses
 - Pathway enrichment analyses
 - Main and supplementary figure generation
 - Race-stratified analyses
 - Prediction analyses
 - Colocalization analyses
-- Bootstrap analyses
 
 The cancer outcomes evaluated include:
 
 - Bladder cancer
-- Colorectal cancer
-- Colon cancer
-- Rectal cancer
+- Colorectal cancer (Colorectal, Colon, Rectal)
 - Kidney cancer
 - Liver cancer
 - Lung cancer
