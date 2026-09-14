@@ -4,8 +4,8 @@ This is the code for the analysis in the manuscript "Identifying Plasma Proteins
 This repository contains code and documentation for evaluating associations between plasma protein concentrations and the risk of solid cancers in the Atherosclerosis Risk in Communities (ARIC) study.
 
 ## Reference
-Wang Z, Burk VA, Huang Z, Zahed H, Muller DC, Yarmolinsky J, Lee MA, Joshu CE, Lin ZC, Prizment A, Butler KR, Couper DJ, Smith-Byrne K, Kolijn PM, Vermeulen RCH, Riboli E, Gunter MJ, Coresh J, Chatterjee N, Platz EA. Identifying Plasma Proteins Associated with Risk of Solid Cancers: A 25-Year Prospective Analysis of 4,712 Circulating Proteins in the ARIC Study. medRxiv [Preprint]. 2026 Mar 18:2026.03.16.26348527. doi: 10.64898/2026.03.16.26348527. PMID: 41890985; PMCID: PMC13015667.
-[paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC13015667/)
+Wang Z, Burk VA, Huang Z, Zahed H, Muller DC, Yarmolinsky J, Lee MA, Joshu CE, Lin ZC, Prizment A, Butler KR, Couper DJ, Smith-Byrne K, Kolijn PM, Vermeulen RCH, Riboli E, Gunter MJ, Coresh J, Chatterjee N, Platz EA. Identifying Plasma Proteins Associated with Risk of Solid Cancers: A 25-Year Prospective Analysis of 4,712 Circulating Proteins in the ARIC Study. medRxiv. 2026. doi: 10.64898/2026.03.16.26348527. PMID: 41890985; PMCID: PMC13015667.
+[link to paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC13015667/)
 
 
 ## Overview
