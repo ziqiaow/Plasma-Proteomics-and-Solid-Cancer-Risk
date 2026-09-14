@@ -122,7 +122,7 @@ This directory contains scripts for preparing the cancer outcome data, cleaning 
 - `cancer_file.R`: Prepares cancer-related variables and outcome data.
 - `data_clean_submit.R`: Performs data cleaning and prepares analysis datasets.
 - `PCA_step1.sh`, `PCA_step2.sh`, and `PCA_step3.sh`: Perform PCA of the genotype data.
-- `submit_mofa.R`: Calculate PEER factors for proteomics data.
+- `submit_mofa.R`: Calculates PEER factors for proteomics data.
 
 ### `2_main_analyses`
 
@@ -134,7 +134,7 @@ These scripts evaluate associations between individual plasma proteins and incid
 
 #### `pathway`
 
-- `clusterProfiler_liver.R`: Performs pathway enrichment analyses for liver cancer.
+Performs pathway enrichment analyses for liver cancer.
 
 #### `sensitivity_protein_cancer_association`
 
@@ -156,12 +156,6 @@ These scripts evaluate the longitudinal stability and reproducibility of protein
 
 This directory contains scripts used to generate the main and supplementary figures.
 
-- `Code_Figure2.R`
-- `Code_Figure3.R`
-- `Code_Figure4.R`
-- `Code_Figure5.R`
-- `Code_Supplementary_Figures.R`
-
 ### `4_revision1`
 
 This directory contains analyses added or updated during manuscript revision.
@@ -169,9 +163,6 @@ This directory contains analyses added or updated during manuscript revision.
 #### `bootstrap`
 
 These scripts perform bootstrap analyses for selected cancer types.
-
-- `bootstrap_liver_lung_kidney.R`
-- `bootstrap_prostate.R`
 
 #### `colocalization`
 
@@ -201,10 +192,6 @@ These scripts perform protein–cancer association analyses separately among Bla
 
 These scripts evaluate protein–cancer associations using ANML-normalized protein measurements, without residualization using PC or PEER Factors.
 
-- `submit_cancer.R`
-- `submit_liver_kidney_lung.R`
-- `submit_rectal.R`
-- `submit_summary.R`
 
 #### Supplementary figure
 
