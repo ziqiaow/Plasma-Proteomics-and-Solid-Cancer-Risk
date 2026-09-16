@@ -12,7 +12,7 @@ load("./collaboration/ARIC_Cancer/all/original/results/cox_fit_fullmodel_liver_a
 entrez_ids = res_final$`Entrez Gene ID`[which(res_final$fdr < 0.05)]
 uniprot_id = res_final$uniprot_id[which(res_final$fdr < 0.05)]
 
-# -------- Step 3: KEGG Pathway Enrichment --------
+# -------- KEGG Pathway Enrichment --------
 kegg_enrich <- enrichMKEGG(
   gene = entrez_ids,
   #universe      = res_final$uniprot_id,
