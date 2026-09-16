@@ -21,7 +21,7 @@ v3 = v3[,-c(1,2,4:34)]
 v3 = v3[,-c(5286:5298)]
 
 #for v2
-#flag2=0 is applied, 4955 proteins are used
+#flag2=0 is applied, 4955 aptamers are used
 load("./protein_flag2_all.RData")
 v2 = protein_clean_final
 id_intersect = intersect(v2$SampleId,id) #7517
