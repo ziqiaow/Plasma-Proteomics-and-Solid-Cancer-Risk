@@ -107,24 +107,10 @@ cvAUC(cv_model$pred$Yes,cv_model$pred$obs,folds = cv_model$pred$Resample)
 #$cvAUC
 #[1] 0.7522917
 
-
-cv_resamples <- cv_model$resample
-mean_auc <- mean(cv_resamples$ROC)
-sd_auc <- sd(cv_resamples$ROC)
-
-#Calculate a fold-level 95% Confidence Interval
-#Standard Error = SD / sqrt(number of rows)
-se_folds <- sd_auc / sqrt(nrow(cv_resamples))
-lower_ci_fold <- mean_auc - (1.96 * se_folds)
-upper_ci_fold <- mean_auc + (1.96 * se_folds)
-
-cat(paste0("Average Fold AUC: ", round(mean_auc, 3), " ± ", round(sd_auc, 3), " (SD)\n")) #Average Fold AUC: 0.752 ± 0.078 (SD)
-cat(paste0("Fold-Level 95% CI:    (", round(lower_ci_fold, 3), ", ", round(upper_ci_fold, 3), ")\n")) #Fold-Level 95% CI:    (0.725, 0.78)
-
 # ==============================================================================
-# 1. EXTRACT INDICES & SET CV CONTROL FROM YOUR ORIGINAL MODEL
+# 1. EXTRACT INDICES & SET CV CONTROL FROM ORIGINAL MODEL
 # ==============================================================================
-# Locks down your exact original partitions to ensure identical results
+# Use exact original partitions to ensure identical results
 original_indices <- cv_model$control$index
 
 fixed_cv_control <- trainControl(
