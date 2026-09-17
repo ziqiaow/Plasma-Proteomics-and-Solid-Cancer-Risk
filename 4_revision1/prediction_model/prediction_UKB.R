@@ -162,3 +162,50 @@ ci.cvAUC(cv_model_protein_rf$pred$Yes,cv_model_protein_rf$pred$obs,folds = cv_mo
 
 cv_model_protein$results$ROC-cv_model_rf$results$ROC #0.03518703
 cv_model_protein_rf$results$ROC-cv_model_rf$results$ROC #0.07270376
+
+
+
+#--------------------------------------------------------------------------------------------------------
+#Report the weights associated with the risk factors for the final risk prediction model of liver cancer
+library(survival)
+library(caret)
+#Create a copy of the dataset to standardize
+standardised_data <- model_data_test
+
+for (protein in protein_map$ukb_id) {
+  p_mean <- mean(standardised_data[[protein]], na.rm = TRUE)
+  p_sd   <- sd(standardised_data[[protein]], na.rm = TRUE)
+  standardised_data[[protein]] <- (standardised_data[[protein]] - p_mean) / p_sd
+}
+
+standardised_data$sex           <- factor(standardised_data$sex)
+standardised_data$SmokingStatus <- factor(standardised_data$SmokingStatus)
+standardised_data$AlcoholStatus <- factor(standardised_data$AlcoholStatus)
+
+print(levels(standardised_data$SmokingStatus))
+print(levels(standardised_data$AlcoholStatus))
+
+proteins_part <- paste(protein_map$ukb_id, collapse = " + ")
+clinical_part <- "sex + BMI + SmokingStatus + AlcoholStatus + age"
+
+formula_str <- paste("event ~", proteins_part, "+", clinical_part)
+formula_obj <- as.formula(formula_str)
+
+# Fit the multivariable logistic regression model
+final_combined_model <- glm(
+  formula_obj, 
+  data = standardised_data, 
+  family = binomial(link = "logit")
+)
+
+
+model_summary <- summary(final_combined_model)$coefficients
+log_odds  <- model_summary[-1, "Estimate"]
+
+reporting_table <- data.frame(
+  Risk_factor = rownames(model_summary)[-1],
+  Weight_beta  = log_odds
+)
+reporting_table$protein_uniprot_ID = c(protein_map$uniprot,rep(NA,7))
+
+
