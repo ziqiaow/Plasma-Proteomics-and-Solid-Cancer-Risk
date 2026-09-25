@@ -46,23 +46,13 @@ cv_model <- train(
 )
 
 cv_model$results
-# parameter       ROC       Sens      Spec      ROCSD     SensSD       SpecSD
-#1      none 0.7522917 0.01439394 0.9999035 0.07763077 0.0327723 9.118612e-05
 
 library(cvAUC)
 ci.cvAUC(cv_model$pred$Yes,cv_model$pred$obs,folds = cv_model$pred$Resample)
-#$cvAUC
-# [1] 0.7522917
-# 
-# $se
-# [1] 0.0142499
-# 
-# $ci
-# [1] 0.7243624 0.7802210
+
 
 cvAUC(cv_model$pred$Yes,cv_model$pred$obs,folds = cv_model$pred$Resample)
-#$cvAUC
-#[1] 0.7522917
+
 
 # ==============================================================================
 # 1. EXTRACT INDICES & SET CV CONTROL FROM ORIGINAL MODEL
@@ -101,20 +91,14 @@ formula_protein_rf <- as.formula(paste("event ~", proteins_str, "+", clinical_st
 # Train Model A (Baseline)
 cv_model_rf <- train(formula_rf, data = model_data_test, method = "glm", family = "binomial", trControl = fixed_cv_control, metric = "ROC")
 ci.cvAUC(cv_model_rf$pred$Yes,cv_model_rf$pred$obs,folds = cv_model_rf$pred$Resample)
-#$ci
-#[1] 0.6526634 0.7065125
+
 # Train Model B (Proteins in model 2 Only)
 cv_model_protein <- train(formula_protein, data = model_data_test, method = "glm", family = "binomial", trControl = fixed_cv_control, metric = "ROC")
 ci.cvAUC(cv_model_protein$pred$Yes,cv_model_protein$pred$obs,folds = cv_model_protein$pred$Resample)
-#$ci
-#[1] 0.6834938 0.7460561
-
 
 # Train Model C (Full Model)
 cv_model_protein_rf <- train(formula_protein_rf, data = model_data_test, method = "glm", family = "binomial", trControl = fixed_cv_control, metric = "ROC")
 ci.cvAUC(cv_model_protein_rf$pred$Yes,cv_model_protein_rf$pred$obs,folds = cv_model_protein_rf$pred$Resample)
-#$ci
-#[1] 0.7243624 0.7802210
 
 
 cv_model_protein$results$ROC-cv_model_rf$results$ROC #0.03518703
